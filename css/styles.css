@@ -1,0 +1,233 @@
+:root {
+  --rojo: #e50914;
+  --fondo: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--fondo);
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+header {
+  padding: 30px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logotipo {
+  font-family: "Bebas Neue", cursive;
+  font-weight: normal;
+  color: var(--rojo);
+  font-size: 40px;
+}
+
+header nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+  color: #fff;
+}
+
+/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+.pelicula-principal {
+  font-size: 16px;
+  min-height: 40.62em;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    url(../img/backdrop.jpg);
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 3.12em;
+  display: flex;
+  align-items: end;
+}
+
+.pelicula-principal .container {
+  margin: 0 auto;
+  margin-bottom: 6.25em;
+}
+
+.pelicula-principal .titulo {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.pelicula-principal .descripcion {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.75em;
+  max-width: 50%;
+  margin-bottom: 1.25em;
+}
+
+.pelicula-principal .boton {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.12em;
+}
+
+.pelicula-principal .boton:hover {
+  background: #fff;
+  color: #000;
+}
+
+.pelicula-principal .boton i {
+  margin-right: 1.25em;
+}
+
+/*--- title container and indicators ---*/
+.container-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.container-title h3 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.container-title .indicators button {
+  background: #fff;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.container-title .indicators button:hover,
+.container-title .indicators button.active {
+  background: red;
+}
+
+/*--- main container and arrows ---*/
+
+.sugestions {
+  margin-bottom: 70px;
+}
+
+.sugestions .container-main {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sugestions .container-main .arrow-left,
+.sugestions .container-main .arrow-right {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% -25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+}
+
+.sugestions .container-main .arrow-left:hover,
+.sugestions .container-main .arrow-right:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.sugestions .container-main .arrow-left {
+  left: 0;
+}
+
+.sugestions .container-main .arrow-right {
+  right: 0;
+}
+
+.sugestions .container-carousel {
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.sugestions .container-carousel .carousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.sugestions .container-carousel .carousel .movie {
+  min-width: 20%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sugestions .container-carousel .carousel .movie.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+.sugestions .container-carousel .carousel .movie img {
+  width: 100%;
+  vertical-align: top;
+}
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+  header .logotipo {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pelicula-principal {
+    font-size: 14px;
+  }
+
+  .pelicula-principal .descripcion {
+    max-width: 100%;
+  }
+
+  .sugestions .container-carousel {
+    overflow: visible;
+  }
+
+  .sugestions .container-carousel .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .sugestions .indicators,
+  .sugestions .arrow-left,
+  .sugestions .arrow-right {
+    display: none;
+  }
+}
